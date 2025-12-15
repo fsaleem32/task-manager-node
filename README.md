@@ -1,3 +1,5 @@
+## Welcome 👋
+
 Thanks for taking the time to work through this exercise!
 
 We don’t expect perfection or a “finished product” in the short time you have. The goal is simply to see how you think, how you structure code, and how you approach a realistic problem. It’s completely okay if you don’t get through everything.
@@ -10,7 +12,9 @@ There isn’t one “right” solution — we’re more interested in your reaso
 
 Feel free to leave comments or notes in the code if you’d like to explain trade-offs or what you’d do with more time.
 
-Above all, relax and have fun with it. Treat this as a chance to show how you naturally work on a small but real-world backend feature rather than an exam.---
+Above all, relax and have fun with it. Treat this as a chance to show how you naturally work on a small but real-world backend feature rather than an exam.
+
+---
 
 ## 🚀 Setup Instructions
 
