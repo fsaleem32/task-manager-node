@@ -1,25 +1,26 @@
-import type { Task, TaskCreateOrUpdate } from './types';
+import axios from "axios";
+import type { Task, TaskCreateOrUpdate } from "./types";
 
 const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080';
+  import.meta.env.VITE_API_BASE_URL || "http://localhost:8080";
 
 export async function fetchTasks(): Promise<Task[]> {
   const res = await fetch(`${API_BASE_URL}/api/tasks`);
   if (!res.ok) {
-    throw new Error('Failed to fetch tasks');
+    throw new Error("Failed to fetch tasks");
   }
   return res.json();
 }
 
 export async function createTask(task: TaskCreateOrUpdate): Promise<Task> {
   const res = await fetch(`${API_BASE_URL}/api/tasks`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(task),
   });
 
   if (!res.ok) {
-    throw new Error('Failed to create task');
+    throw new Error("Failed to create task");
   }
 
   return res.json();
@@ -27,27 +28,19 @@ export async function createTask(task: TaskCreateOrUpdate): Promise<Task> {
 
 export async function updateTask(
   id: number,
-  task: TaskCreateOrUpdate,
+  task: TaskCreateOrUpdate
 ): Promise<Task> {
-  const res = await fetch(`${API_BASE_URL}/api/tasks/${id}`, {
-    method: 'PUT',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(task),
-  });
+  const res = await axios.put(`${API_BASE_URL}/api/tasks/${id}`, task);
 
-  if (!res.ok) {
-    throw new Error('Failed to update task');
-  }
-
-  return res.json();
+  return res.data;
 }
 
 export async function deleteTask(id: number): Promise<void> {
   const res = await fetch(`${API_BASE_URL}/api/tasks/${id}`, {
-    method: 'DELETE',
+    method: "DELETE",
   });
 
   if (!res.ok) {
-    throw new Error('Failed to delete task');
+    throw new Error("Failed to delete task");
   }
 }
